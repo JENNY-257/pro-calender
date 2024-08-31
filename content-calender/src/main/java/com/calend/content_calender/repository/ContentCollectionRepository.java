@@ -32,4 +32,15 @@ public class ContentCollectionRepository {
   Content c = new Content(1, "Blogs", "My first blog", Status.IDEA, null, LocalDateTime.now() ,null, "");
   content.add(c);
  }
+ public void save(Content cont){
+   content.add(cont);
+ }
+ public boolean existsById(Integer id){
+ return content.stream().filter(c -> c.id().equals(id)).count()==1;
+}
+
+public void delete(Integer id){
+   content.removeIf(c ->c.id().equals(id));
+
+}
 }
